@@ -1,13 +1,12 @@
 #wrapBg{
     width: 343px;
     height: 480px;
-    background-image: url(../img/bg.jpg);
+    background-image: url('../img/bg.jpg');
     margin: 0 auto;
     /* margin-top: 100px; */
     position: relative;
-    top: 100px;
-    overflow: hidden;
-
+    top: 100px;/*必须在这种相对定位之下才能用*/
+    overflow: hidden;/*超出者隐藏*/
 }
 #headTitle{
     width: 236px;
@@ -18,10 +17,8 @@
     top: 100px;
 }
 #headBird{
-    /* position: absolute; */
     float: right;
     margin-top: 25px;
-
 }
 #startBtn{
     width: 85px;
@@ -47,4 +44,6 @@
     position: absolute;
     top: 423px;
     left: 343px;
+    /* display: none; */
+    
 }
