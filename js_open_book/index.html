@@ -80,7 +80,7 @@
             -webkit-transform-style:preserve-3d ;
             transform-style:preserve-3d ;
         }
-        /* 左右的内外壳 */
+        /* 左右的内外壳  翻书时绕Y旋转*/
         .flip{
             transform: rotateY(180deg);
         }
@@ -121,5 +121,64 @@
             <div class="page back"></div>
         </div>
     </div>
+    <script>
+        // 自执行函数
+        (function(window,document) {
+        var prefiex = ['webkit','Moz','ms','o'],
+            book = document.querySelectorAll('.book')[0],
+            page = document.querySelectorAll('.front-cover')[0],
+            dino = document.querySelectorAll('.dino')[0],
+            shadow = document.querySelectorAll('.shadow')[0],
+            centerPoint = window.innerWidth / 2,
+            hold = false,
+            clamp = function(val,min,max) {
+                return Math.max(min,Math.min(val,max))
+            },
+            pageSize = 300;
+            //鼠标按下的事件
+        page.onmousedown = function() {
+            hold = true
+        }
+
+        //鼠标放开事件，监听到整个浏览器页面
+        window.onmouseup = function() {
+            if (hold) {
+                hold = false
+            }
+        }
+
+        //在窗口调整大小的时候执行的事件
+        window.onresize = function() {
+            centerPoint = window.innerWidth / 2
+        }
+
+        //鼠标移动时候执行的事件
+        window.onmousemove = function(event) {
+            if(!hold) {
+                return;
+            }
+            var angle = clamp((centerPoint - event.pageX + pageSize) / pageSize * -90, -180, 0),
+            i,j;
+
+
+            // for(i=0,j=prefiex.length;i<j;i++) {
+            //     page.style[prefiex[i] + 'Transform'] =`rotateY(${angle}deg)`;//`ratateY(${angle}deg)`
+            //     dino.style[prefiex[i] + 'Transform'] = `ratateX(${angle/2 + 40}deg)`;
+            //     book.style[prefiex[i] + 'Transform'] = `ratateX(${60 + angle / 8}deg)`;
+            //     shadow.style[prefiex[i] + 'Transform'] = `translateZ(1px) skewX(${angle/8}deg)`
+
+            // }
+            for (i = 0, j = prefiex.length; i < j; i++) {
+          page.style[prefiex[i] + 'Transform'] = `rotateY(${angle}deg)`;
+          dino.style[prefiex[i] + 'Transform'] = `rotateX(${angle / 2 + 40}deg)`;
+          book.style[prefiex[i] + 'Transform'] = `rotateX(${60 + angle / 8}deg)`;
+          shadow.style[prefiex[i] + 'Transform'] = `translateZ(1px) skewX(${angle / 8}deg)`
+        }
+
+
+        }
+
+        })(window,document)
+    </script>
 </body>
 </html>
