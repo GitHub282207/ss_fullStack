@@ -1,32 +1,54 @@
 // miniprogram/pages/index/index.js
+import Notify from '@vant/weapp/dist/notify/notify';
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    newGroupModal: false,
-    groupName: ''
+    newGroupModal:false,
+    groupName:''
   },
-
-  showNewGroupModal() {
+  showNewGroupModal(){
     // console.log(123);
     this.setData({
-      newGroupModal: true
+      newGroupModal:true
     })
+    
   },
-  onClose() {
+  onClose(){
     this.setData({
-      newGroupModal: false
+      newGroupModal:false
     })
   },
   createGroup() {
-
+    const self = this
+    if(self.data.groupName === ''){
+      Notify({
+        text:'起个名字吧',
+        duration:1500
+      });
+    }
+    // 把groupName传给后端
+    wx.cloud.callFunction({
+      name: 'createGroup',
+      data: {
+        groupName: self.data.groupName
+      },
+      success(res) {
+        console.log(res);
+      },
+      fail(err) {
+        console.log('错误', err);
+      }
+    })
   },
-  onGroupNameChange() {
-
+  onGroupNameChange(event){
+    // console.log(event);
+    this.setData({
+      groupName:event.detail
+    })
   },
-
   /**
    * 生命周期函数--监听页面加载
    */
