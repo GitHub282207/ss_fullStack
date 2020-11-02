@@ -16,6 +16,7 @@ body {
 }
 a {
   text-decoration: none;
+<<<<<<< HEAD
   border: none;
   cursor: pointer;
   -webkit-tap-highlight-color: rgba(0,0,0,0);
@@ -77,6 +78,8 @@ input {
 }
 .account-form-tips a {
   color: #41ac52;
+=======
+>>>>>>> 2d5ba5c9b06c63a0df288af5e368f3f2d3d76754
 }
 #anony-nav {
   width: 100%;
@@ -305,6 +308,7 @@ input {
   line-height: 13px;
   white-space: nowrap;
 }
+<<<<<<< HEAD
 .account-anonymous {
   height: 296px;
   min-height: 200px;
@@ -396,3 +400,5 @@ input {
 .account-body h2 {
   box-sizing: border-box;
 }
+=======
+>>>>>>> 2d5ba5c9b06c63a0df288af5e368f3f2d3d76754
