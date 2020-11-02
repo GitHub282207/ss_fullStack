@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WEUI</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        /* 元素属性 css 面向对象的继承是一直在的 inherit
+        从父元素继承，从基础类中 */
+        a {
+            text-decoration: none;
+            /* 手机上特有的特性 高亮效果  webkit google实验阶段*/
+            -webkit-tap-highlight-color: rgba(0,0,0,0);
+        }
+        /* 基类 */
+        .weui-btn {
+            position: relative;
+            /* 接受我，块级元素 切换 */
+            display: block;
+            /* UI的锅 按钮通用宽度*/
+            width: 184px;
+            margin-left: auto;
+            margin-right: auto;
+            padding: 8px 24px;
+            box-sizing:border-box;
+            font-weight: 700;
+            text-align: center;
+            font-size: 17px;
+            text-decoration: none;
+            color: #ffffff;
+            line-height: 1.41176471;
+            border-radius: 4px;
+
+        }
+        .weui-btn_primary{
+            background-color: #07c160;
+        }
+        .weui-btn_loading.weui-btn_primary{
+            background-color: #06ae56;
+            color:#fff;
+            position: relative;
+        }
+        /* modifier
+        .weui-btn_large{
+
+        } */
+        .weui-loading {
+        width: 20px;
+        height: 20px;
+        /* border:red solid 3px; */
+        display: inline-block;
+        position: absolute;
+        vertical-align: middle;
+        -webkit-animation: weuiLoading 1s steps(12,end) infinite;
+        /* animation: rotation 3s steps linear infinite; */
+        background:url(images/loading.jpg) ;
+        /* background-size: 100%; */
+        /* left:19px; */
+        }
+        .weui-btn_loading .weui-loading {
+        /* margin: -0.2em 0.34em 0 0; */
+        margin-top: 0.1em;
+        margin-left: -1.5em;
+        /* margin-right: 2em; */
+}
+@keyframes weuiLoading{
+    from{
+        -webkit-transform:rotate(0deg);
+    }
+    to{
+        -webkit-transform:rotate(360deg);
+    }
+}
+    </style>
+</head>
+<body>
+    <!-- 类名很重要
+    BEM 国际命名规范block-name_element-name--modefiy-name  积木 搭起来的
+    .button 
+    .btn 
+    命名空间 tm-btn  tb-btn  Block
+    a.weui-btn  
+    按钮的什么？ 状态
+    Block
+    Modifier _
+-->
+    <a href="javascript:;" class="weui-btn weui-btn_primary">页面主操作</a>
+    <a href="javascript:;" class="weui-btn weui-btn_primary weui-btn_loading">
+        <i class="weui-loading"></i>页面主操作</a>
+    <div class="weui-cells__group weui-cells__group_form">
+        <!-- Element BEM
+        .vs-icon.vs-icon_avatar -->
+        <div class="weui-cells__title"></div>
+        <!-- .weui-cell>.weui-cell__hd+.weui-cell__bd -->
+    </div>
+</body>
+</html>

@@ -1,0 +1,4 @@
+<block wx-for="product in products">
+
+</block>
+

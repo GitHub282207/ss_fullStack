@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    /*  + space , >*/
+    /* 兄弟li */
+    /* li + li::before{
+        content:'|';
+    } */
+    /* ul下面的直接子元素,选不到孙子 */
+    /* ul > li{
+
+    } */
+    /* 选择器                     优先级
+    id  :                         1-0-0
+    class：， 属性attr：[type="text"] 0-1-0
+    标签tag：div li               0-0-1
+    */
+    li:nth-child(2)~li{
+        color:red;
+    }
+</style>
+<body>
+    <ul>
+        <li>1
+            <li>4</li>
+        </li>
+        <li>2</li>
+        <li>3</li>
+    </ul>
+</body>
+</html>
