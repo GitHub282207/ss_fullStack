@@ -6,12 +6,46 @@
     <title>Document</title>
 </head>
 <body>
+    <!-- <script>
+        Person.prototype.name = 'wn'
+        //new构造函数的三部曲
+        //1. 在构造函数内部创造一个this空对象
+        function Person(){
+            // var this = {
+            //     __proto__:Person.prototype
+            // }
+            // return this
+        }
+        var person = new Person()
+        // console.log(person.__proto__);
+
+        // var test = {}
+        var obj = {
+            name:'蜗牛'
+        }
+        console.log(obj.__proto__);
+        person.__proto__= obj
+        // console.log(person.__proto__);
+        console.log(person.name);//__proto__指向谁，就上谁那里找属性
+        
+    </script> -->
+
     <script>
+        //深浅拷贝
+        // var a = 1 
+        // var b = a
+        // a = 2
+        Person.prototype.name='wn'
         function Person(){
 
         }
         var person = new Person()
-        console.log(person);
+        // Person.prototype.name='蜗牛'改原来原型上name属性，浅拷贝
+        Person.prototype = {//重写原型，深拷贝
+            name:"蜗牛"
+        }
+        console.log(person.name);
+
     </script>
 </body>
 </html>
