@@ -1,0 +1,38 @@
+<script>
+    let arr = [{a:1},{a:2},{a:3}]
+    //<li>1</li><li>2</li><li>3</li>
+    // [1,2,3]
+    //map 映射
+    //函数式
+    let newArr = arr.map((item)=>{
+        // console.log(item);
+        return item.a*2
+    })
+    let arr1 = arr.map((item)=>{
+        return `<li>${item.a}</li>`
+    })
+    console.log(newArr,arr1);
+    //命令式
+    let res = [];
+    arr.forEach((item)=>{
+        console.log(item);
+        res.push(item.a)
+    })
+    let arr2 = [1,2,3,4,5,6];
+    //1 pre:=>0  item ：1  => 1 第二次是，Pre代表上一项的结果1，item代表数组第二个值
+    //reduce 循环的意思 叠加
+    let sum = arr2.reduce((pre,item) =>{
+        return pre+item;
+    },0);
+    console.log(sum);
+    let arr3=[{a:1},{b:2},{c:3}]
+    // {a:1,b:2,c:3}
+    let arr4 = arr3.reduce((pre,item) =>{
+        return {
+            ...pre,//...合并效果,展开放在同一个花括号里面
+            ...item
+        }
+        //Object.assign()
+    },{});
+    console.log(arr4);
+</script>
