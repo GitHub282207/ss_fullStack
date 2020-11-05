@@ -17,4 +17,5 @@ var obj1 = Object.create(obj)
 
 // 不是的  特例
 var obj = Object.create(null)
+obj.__proto__ = { name:'wn'}
 
